@@ -160,10 +160,13 @@ public class Main {
             moveTo = input.nextInt();
         }while (moveTo < 0 || moveTo >= taskList.size() || moveTo == option);
 
-        taskList.add(moveTo, taskList.get(option));
-        taskList.remove(option+1);
+        if (option > moveTo) {
+            taskList.add(moveTo, taskList.get(option));
+            taskList.remove(option + 1);
 
-        //2 casos, origen > destino && destino > origen
-
+        }else {
+            taskList.add(moveTo+1, taskList.get(option));
+            taskList.remove(option);
+        }
     }
 }
